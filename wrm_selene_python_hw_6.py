@@ -1,7 +1,5 @@
 from datetime import time
 
-night_start_time = time(hour=22)
-night_end_time = time(hour=6)
 
 def test_dark_theme():
     """
@@ -13,7 +11,7 @@ def test_dark_theme():
 
     # DONE переключите темную тему в зависимости от времени суток (с 22 до 6 часов утра - ночь)
 
-    is_dark_theme = None
+    # is_dark_theme = None
 
     if night_end_time.hour <= current_time.hour <= night_start_time.hour:
         is_dark_theme = False
@@ -92,9 +90,10 @@ def create_readable_func_name_and_args(name_func, *args, sep=', '):
     readable_args = sep.join(str(arg) for arg in args)
     return f"{readable_func_name} [{readable_args}]"
 
+
 def test_readable_function():
     open_browser(browser_name="Chrome")
-    go_to_companyname_homepage(page_url="https://companyname.com")
+    go_to_company_name_homepage(page_url="https://companyname.com")
     find_registration_button_on_login_page(page_url="https://companyname.com/login", button_text="Register")
 
 
@@ -103,9 +102,9 @@ def open_browser(browser_name):
     assert actual_result == "Open Browser [Chrome]"
 
 
-def go_to_companyname_homepage(page_url):
-    actual_result = create_readable_func_name_and_args(go_to_companyname_homepage, page_url)
-    assert actual_result == "Go To Companyname Homepage [https://companyname.com]"
+def go_to_company_name_homepage(page_url):
+    actual_result = create_readable_func_name_and_args(go_to_company_name_homepage, page_url)
+    assert actual_result == "Go To Company Name Homepage [https://companyname.com]"
 
 
 def find_registration_button_on_login_page(page_url, button_text):

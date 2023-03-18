@@ -86,7 +86,8 @@ def test_find_suitable_user():
 def create_readable_func_name_and_args(name_func, *args, sep=', '):
     readable_func_name = name_func.__name__.replace('_', ' ').title()
     readable_args = sep.join(str(arg) for arg in args)
-    return f"{readable_func_name} [{readable_args}]"
+    readable_func_name_and_args = f"{readable_func_name} [{readable_args}]"
+    return readable_func_name_and_args
 
 
 def test_readable_function():

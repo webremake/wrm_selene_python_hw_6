@@ -18,8 +18,6 @@ def test_dark_theme():
     else:
         is_dark_theme = True
 
-    # print(is_dark_theme)
-    # print(type(is_dark_theme))
     assert is_dark_theme is True
 
     """

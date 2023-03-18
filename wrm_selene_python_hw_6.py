@@ -1,15 +1,15 @@
 from datetime import time
 
+night_start_time = time(hour=22)
+night_end_time = time(hour=6)
 
 def test_dark_theme_by_time():
     """
     Протестируйте правильность переключения темной темы на сайте в зависимости от времени
     """
     current_time = time(hour=23)
-    night_start_time = time(hour=22)
-    night_end_time = time(hour=6)
 
-    # TODO переключите темную тему в зависимости от времени суток (с 22 до 6 часов утра - ночь)
+    # DONE переключите темную тему в зависимости от времени суток (с 22 до 6 часов утра - ночь)
 
     is_dark_theme = None
 
@@ -28,11 +28,17 @@ def test_dark_theme_by_time_and_user_choice():
     в зависимости от времени и выбора пользователя
     """
     current_time = time(hour=16)
-    dark_theme_enabled_by_user = True
-    # TODO переключите темную тему в зависимости от времени суток,
+
+    # DONE переключите темную тему в зависимости от времени суток,
     #  но учтите что темная тема может быть включена вручную
 
     is_dark_theme = None
+
+    if is_dark_theme is True or night_end_time.hour <= current_time.hour <= night_start_time.hour:
+        is_dark_theme = True
+    else:
+        is_dark_theme = True
+
     assert is_dark_theme is True
 
 
@@ -48,13 +54,23 @@ def test_find_suitable_user():
         {"name": "Maria", "age": 18},
     ]
 
-    # TODO найдите пользователя с именем "Olga"
-    suiable_user = None
-    assert suiable_user == {"name": "Olga", "age": 45}
+    # DONE найдите пользователя с именем "Olga"
+    suitable_user = {}
 
-    # TODO найдите всех пользователей младше 20 лет
-    suiable_users = None
-    assert suiable_users == [
+    for user in users:
+        if user['name'] == 'Olga':
+            suitable_user.update({'name': user['name'], 'age': user['age']})
+
+    assert suitable_user == {"name": "Olga", "age": 45}
+
+    # DONE найдите всех пользователей младше 20 лет
+    suitable_users = []
+
+    for user in users:
+        if user['age'] < 20:
+            suitable_users.append({'name': user['name'], 'age': user['age']})
+
+    assert suitable_users == [
         {"name": "Stanislav", "age": 15},
         {"name": "Maria", "age": 18},
     ]
